@@ -29,12 +29,5 @@ public class BeanContainer {
         }
     }
 
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfigForOtherBeans.class);
-        BeanContainer beanContainer = (BeanContainer) context.getBean("beanContainer");
-        beanContainer.printAllElements();
-
-
-    }
 }
 

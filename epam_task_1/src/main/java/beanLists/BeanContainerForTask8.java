@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Implementation of task 7.
+ * In this task we use beans from otherBeans pkg.
  * OtherBeanA has a @Primary annotation
  */
 
@@ -33,9 +35,4 @@ public class BeanContainerForTask8 {
         }
     }
 
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfigForOtherBeans.class);
-        BeanContainerForTask8 beanContainer = (BeanContainerForTask8) context.getBean("beanContainerForTask8");
-        beanContainer.printAllElements();
-    }
 }

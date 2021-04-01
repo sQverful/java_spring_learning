@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2b0fa64-a1b8-4545-9a16-50b4366b573e" name="Default Changelist" comment="" />
+    <list default="true" id="d2b0fa64-a1b8-4545-9a16-50b4366b573e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_task_1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beanLists/BeanContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beanLists/BeanContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/beanLists/BeanContainerForTask8.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/beanLists/BeanContainerForTask8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/injectionOfOtherBeans/OtherBeanAinjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/injectionOfOtherBeans/OtherBeanAinjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/injectionOfOtherBeans/OtherBeanCinjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/injectionOfOtherBeans/OtherBeanCinjection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/spring_task_1.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +26,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1qWsYzMRNM6Dfffe19ZhaHzCQfD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -124,11 +140,23 @@
       <updated>1617206731465</updated>
       <workItem from="1617206734337" duration="2310000" />
       <workItem from="1617283268014" duration="11106000" />
+      <workItem from="1617304300725" duration="656000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -142,14 +170,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/beanLists/BeanContainer.java</url>
           <line>25</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/beanLists/BeanContainer.java</url>
-          <line>31</line>
-          <properties class="beanLists.BeanContainer" method="main">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

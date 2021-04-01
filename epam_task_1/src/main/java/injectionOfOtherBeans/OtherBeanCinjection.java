@@ -33,9 +33,4 @@ public class OtherBeanCinjection {
         otherBeanTwo.sayName();
     }
 
-    public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfigForOtherBeans.class);
-        OtherBeanCinjection otherBeanCinjection = (OtherBeanCinjection) context.getBean("otherBeanCinjection");
-        otherBeanCinjection.sayAllNames();
-    }
 }
