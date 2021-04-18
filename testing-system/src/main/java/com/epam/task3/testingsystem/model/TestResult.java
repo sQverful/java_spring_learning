@@ -2,6 +2,7 @@ package com.epam.task3.testingsystem.model;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.sql.Timestamp;
 

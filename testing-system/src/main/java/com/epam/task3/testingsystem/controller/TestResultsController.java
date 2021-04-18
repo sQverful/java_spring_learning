@@ -1,5 +1,7 @@
 package com.epam.task3.testingsystem.controller;
 
+import com.epam.task3.testingsystem.controller.assembler.TestResultsAssembler;
+import com.epam.task3.testingsystem.controller.model.TestResultsModel;
 import com.epam.task3.testingsystem.dto.TestResultDto;
 import com.epam.task3.testingsystem.service.TestResultService;
 import lombok.RequiredArgsConstructor;
@@ -15,28 +17,31 @@ import org.springframework.web.bind.annotation.*;
 public class TestResultsController {
 
     private final TestResultService tsService;
+    private final TestResultsAssembler testResultsAssembler;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/{id}")
-    public TestResultDto getTestResult(@PathVariable int id) {
+
+    public TestResultsModel getTestResult(@PathVariable int id) {
         TestResultDto testResultDto = tsService.getTestResult(id);
         log.info("Get testResult: {}", testResultDto);
-        return testResultDto;
+        return testResultsAssembler.toModel(testResultDto);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public TestResultDto createTestResult(@RequestBody TestResultDto testResultDto) {
+    public TestResultsModel createTestResult(@RequestBody TestResultDto testResultDto) {
+        TestResultDto testResultDto1 = tsService.createTestResult(testResultDto);
         log.info("Create testResult: {}", testResultDto);
-        return tsService.createTestResult(testResultDto);
+        return testResultsAssembler.toModel(testResultDto1);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping(value = "/{id}")
-    public TestResultDto updateTestResult(@PathVariable int id, @RequestBody TestResultDto testResultDto) {
+    public TestResultsModel updateTestResult(@PathVariable int id, @RequestBody TestResultDto testResultDto) {
         TestResultDto tsAfterUpdate = tsService.updateTestResult(id, testResultDto);
         log.info("Update user: {}", tsAfterUpdate);
-        return tsAfterUpdate;
+        return testResultsAssembler.toModel(tsAfterUpdate);
     }
 
 

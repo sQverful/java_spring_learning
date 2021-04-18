@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class TestResultServiceImpl implements com.epam.task3.testingsystem.service.TestResultService {
 
-    private TestResultRepository testResultRepository;
+    private final TestResultRepository testResultRepository;
 
     @Override
     public TestResultDto getTestResult(int id) {

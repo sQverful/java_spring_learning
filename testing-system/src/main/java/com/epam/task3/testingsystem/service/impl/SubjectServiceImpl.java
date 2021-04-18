@@ -6,12 +6,14 @@ import com.epam.task3.testingsystem.repository.SubjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+
 
 @Service
 @RequiredArgsConstructor
 public class SubjectServiceImpl implements com.epam.task3.testingsystem.service.SubjectService {
 
-    private SubjectRepository subjectRepository;
+    private final SubjectRepository subjectRepository;
 
     @Override
     public SubjectDto getSubject(int id) {
@@ -57,7 +59,7 @@ public class SubjectServiceImpl implements com.epam.task3.testingsystem.service.
                 .descriptionEN(subjectDto.getDescriptionEN())
                 .descriptionUA(subjectDto.getDescriptionUA())
                 .adminId(subjectDto.getAdminId())
-                .createdOn(subjectDto.getCreatedOn())
+                .createdOn(new Timestamp(System.currentTimeMillis()))
                 .build();
     }
 }

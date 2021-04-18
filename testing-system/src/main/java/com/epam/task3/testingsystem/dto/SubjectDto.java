@@ -15,4 +15,6 @@ public class SubjectDto {
     private String descriptionUA;
     private int adminId;
     private Timestamp createdOn;
+
 }
+

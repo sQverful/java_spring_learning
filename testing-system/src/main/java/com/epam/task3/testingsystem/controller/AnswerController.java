@@ -1,5 +1,7 @@
 package com.epam.task3.testingsystem.controller;
 
+import com.epam.task3.testingsystem.controller.assembler.AnswerAssembler;
+import com.epam.task3.testingsystem.controller.model.AnswerModel;
 import com.epam.task3.testingsystem.dto.AnswerDto;
 import com.epam.task3.testingsystem.service.AnswerService;
 import lombok.RequiredArgsConstructor;
@@ -15,28 +17,30 @@ import org.springframework.web.bind.annotation.*;
 public class AnswerController {
 
     private final AnswerService answerService;
+    private final AnswerAssembler answerAssembler;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/{id}")
-    public AnswerDto getAnswer(@PathVariable int id) {
+    public AnswerModel getAnswer(@PathVariable int id) {
         AnswerDto answerDto = answerService.getAnswer(id);
         log.info("Get answer: {}", answerDto);
-        return answerDto;
+        return answerAssembler.toModel(answerDto);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public AnswerDto createAnswer(@RequestBody AnswerDto answerDto) {
+    public AnswerModel createAnswer(@RequestBody AnswerDto answerDto) {
+        AnswerDto createdAnswer = answerService.createAnswer(answerDto);
         log.info("Create answer: {}", answerDto);
-        return answerService.createAnswer(answerDto);
+        return answerAssembler.toModel(createdAnswer);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping(value = "/{id}")
-    public AnswerDto updateUser(@PathVariable int id, @RequestBody AnswerDto answerDto) {
+    public AnswerModel updateAnswer(@PathVariable int id, @RequestBody AnswerDto answerDto) {
         AnswerDto answerDtoAfter = answerService.updateAnswer(id, answerDto);
         log.info("Update answer: {}", answerDtoAfter);
-        return answerDtoAfter;
+        return answerAssembler.toModel(answerDtoAfter);
     }
 
 

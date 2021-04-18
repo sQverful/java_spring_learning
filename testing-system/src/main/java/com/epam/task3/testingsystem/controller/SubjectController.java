@@ -1,5 +1,7 @@
 package com.epam.task3.testingsystem.controller;
 
+import com.epam.task3.testingsystem.controller.assembler.SubjectAssembler;
+import com.epam.task3.testingsystem.controller.model.SubjectModel;
 import com.epam.task3.testingsystem.dto.SubjectDto;
 import com.epam.task3.testingsystem.service.SubjectService;
 import lombok.RequiredArgsConstructor;
@@ -11,33 +13,35 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/subjectController")
+@RequestMapping("/subjects")
 @RequiredArgsConstructor
 public class SubjectController {
 
     private final SubjectService subjectService;
+    private final SubjectAssembler subjectAssembler;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/{id}")
-    public SubjectDto getSubject(@PathVariable int id) {
+    public SubjectModel getSubject(@PathVariable int id) {
         SubjectDto subjectDto = subjectService.getSubject(id);
         log.info("Get subject: {}", subjectDto);
-        return subjectDto;
+        return subjectAssembler.toModel(subjectDto);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public SubjectDto createSubject(@RequestBody SubjectDto subjectDto) {
+    public SubjectModel createSubject(@RequestBody SubjectDto subjectDto) {
+        SubjectDto createdSubject = subjectService.createSubject(subjectDto);
         log.info("Create subject: {}", subjectDto);
-        return subjectService.createSubject(subjectDto);
+        return subjectAssembler.toModel(createdSubject);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping(value = "/{id}")
-    public SubjectDto updateSubject(@PathVariable int id, @RequestBody SubjectDto subjectDto) {
+    public SubjectModel updateSubject(@PathVariable int id, @RequestBody SubjectDto subjectDto) {
         SubjectDto subjectDtoAfter = subjectService.updateSubject(id, subjectDto);
         log.info("Update subject: {}", subjectDtoAfter);
-        return subjectDtoAfter;
+        return subjectAssembler.toModel(subjectDtoAfter);
     }
 
 

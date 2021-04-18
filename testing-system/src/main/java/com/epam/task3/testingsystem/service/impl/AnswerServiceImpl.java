@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AnswerServiceImpl implements com.epam.task3.testingsystem.service.AnswerService {
 
-    private AnswerRepository answerRepository;
+    private final AnswerRepository answerRepository;
 
     @Override
     public AnswerDto getAnswer(int id) {
