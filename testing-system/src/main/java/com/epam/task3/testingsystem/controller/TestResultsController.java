@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Timestamp;
 
 @Slf4j
 @RequestMapping("/testResults")
@@ -33,6 +34,7 @@ public class TestResultsController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public TestResultsModel createTestResult(@Valid @RequestBody TestResultDto testResultDto) {
+        testResultDto.setCreatedOn(new Timestamp(System.currentTimeMillis()));
         TestResultDto testResultDto1 = tsService.createTestResult(testResultDto);
         log.info("Create testResult: {}", testResultDto);
         return testResultsAssembler.toModel(testResultDto1);

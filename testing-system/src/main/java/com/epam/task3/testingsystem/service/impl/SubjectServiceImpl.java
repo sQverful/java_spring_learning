@@ -4,11 +4,13 @@ import com.epam.task3.testingsystem.dto.SubjectDto;
 import com.epam.task3.testingsystem.model.Subject;
 import com.epam.task3.testingsystem.repository.SubjectRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 
-
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class SubjectServiceImpl implements com.epam.task3.testingsystem.service.SubjectService {
@@ -40,26 +42,14 @@ public class SubjectServiceImpl implements com.epam.task3.testingsystem.service.
     }
 
     private SubjectDto mapSubjectToSubjectDto(Subject subject) {
-        return SubjectDto.builder()
-                .id(subject.getId())
-                .nameEN(subject.getNameEN())
-                .nameUA(subject.getNameUA())
-                .descriptionEN(subject.getDescriptionEN())
-                .descriptionUA(subject.getDescriptionUA())
-                .adminId(subject.getAdminId())
-                .createdOn(subject.getCreatedOn())
-                .build();
+        SubjectDto subjectDto = SubjectDto.builder().build();
+        BeanUtils.copyProperties(subject, subjectDto);
+        return subjectDto;
     }
 
     private Subject mapSubjectDtoToSubject(SubjectDto subjectDto) {
-        return Subject.builder()
-                .id(subjectDto.getId())
-                .nameEN(subjectDto.getNameEN())
-                .nameUA(subjectDto.getNameUA())
-                .descriptionEN(subjectDto.getDescriptionEN())
-                .descriptionUA(subjectDto.getDescriptionUA())
-                .adminId(subjectDto.getAdminId())
-                .createdOn(new Timestamp(System.currentTimeMillis()))
-                .build();
+        Subject subject = Subject.builder().build();
+        BeanUtils.copyProperties(subjectDto, subject);
+        return subject;
     }
 }

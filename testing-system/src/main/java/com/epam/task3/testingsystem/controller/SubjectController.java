@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Timestamp;
 
 
 @Slf4j
@@ -33,6 +34,7 @@ public class SubjectController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public SubjectModel createSubject(@Valid @RequestBody SubjectDto subjectDto) {
+        subjectDto.setCreatedOn(new Timestamp(System.currentTimeMillis()));
         SubjectDto createdSubject = subjectService.createSubject(subjectDto);
         log.info("Create subject: {}", subjectDto);
         return subjectAssembler.toModel(createdSubject);

@@ -4,6 +4,7 @@ import com.epam.task3.testingsystem.dto.QuestionDto;
 import com.epam.task3.testingsystem.model.Question;
 import com.epam.task3.testingsystem.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -37,20 +38,14 @@ public class QuestionServiceImpl implements com.epam.task3.testingsystem.service
     }
 
     private QuestionDto mapQuestionToQuestionDto(Question question) {
-        return QuestionDto.builder()
-                .id(question.getId())
-                .questionEN(question.getQuestionEN())
-                .questionUA(question.getQuestionUA())
-                .testId(question.getTestId())
-                .build();
+        QuestionDto questionDto = QuestionDto.builder().build();
+        BeanUtils.copyProperties(question, questionDto);
+        return questionDto;
     }
 
     private Question mapQuestionDtoToQuestion(QuestionDto questionDto) {
-        return Question.builder()
-                .id(questionDto.getId())
-                .questionEN(questionDto.getQuestionEN())
-                .questionUA(questionDto.getQuestionUA())
-                .testId(questionDto.getTestId())
-                .build();
+        Question question = Question.builder().build();
+        BeanUtils.copyProperties(questionDto, question);
+        return question;
     }
 }

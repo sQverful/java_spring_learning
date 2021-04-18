@@ -4,6 +4,7 @@ import com.epam.task3.testingsystem.dto.TestResultDto;
 import com.epam.task3.testingsystem.model.TestResult;
 import com.epam.task3.testingsystem.repository.TestResultRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -37,22 +38,14 @@ public class TestResultServiceImpl implements com.epam.task3.testingsystem.servi
     }
 
     private TestResultDto mapTestResultToTestResultDto(TestResult testResult) {
-        return TestResultDto.builder()
-                .id(testResult.getId())
-                .result(testResult.getResult())
-                .userId(testResult.getUserId())
-                .testId(testResult.getTestId())
-                .createdOn(testResult.getCreatedOn())
-                .build();
+        TestResultDto testResultDto = TestResultDto.builder().build();
+        BeanUtils.copyProperties(testResult, testResultDto);
+        return testResultDto;
     }
 
     private TestResult mapTestResultDtoToTestResult(TestResultDto testResultDto) {
-        return TestResult.builder()
-                .id(testResultDto.getId())
-                .result(testResultDto.getResult())
-                .userId(testResultDto.getUserId())
-                .testId(testResultDto.getTestId())
-                .createdOn(testResultDto.getCreatedOn())
-                .build();
+        TestResult testResult = TestResult.builder().build();
+        BeanUtils.copyProperties(testResultDto, testResult);
+        return testResult;
     }
 }

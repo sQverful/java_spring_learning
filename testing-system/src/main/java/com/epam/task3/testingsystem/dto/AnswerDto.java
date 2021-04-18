@@ -2,6 +2,7 @@ package com.epam.task3.testingsystem.dto;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.beans.BeanUtils;
 
 import javax.validation.constraints.NotNull;
 
@@ -17,4 +18,6 @@ public class AnswerDto {
     private boolean correct;
     @NotNull
     private int questionId;
+
+
 }
