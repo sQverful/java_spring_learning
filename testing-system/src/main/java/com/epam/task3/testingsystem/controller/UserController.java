@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Slf4j
 @RestController
 @RequestMapping("/users")
@@ -29,7 +31,7 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public UserModel createUser(@RequestBody UserDto userDto) {
+    public UserModel createUser(@Valid @RequestBody UserDto userDto) {
         log.info("Create user: {}", userDto);
         UserDto userDto1 = userService.createUser(userDto);
         return userAssembler.toModel(userDto1);

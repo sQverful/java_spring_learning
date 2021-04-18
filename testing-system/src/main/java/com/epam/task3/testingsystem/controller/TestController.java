@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Slf4j
 @RequestMapping("/tests")
 @RestController
@@ -29,7 +31,7 @@ public class TestController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public TestModel createTest(@RequestBody TestDto testDto) {
+    public TestModel createTest(@Valid @RequestBody TestDto testDto) {
         TestDto createdTest = testService.createTest(testDto);
         log.info("Create test: {}", testDto);
         return testAssembler.toModel(createdTest);

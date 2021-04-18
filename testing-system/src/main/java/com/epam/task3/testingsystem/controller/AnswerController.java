@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Slf4j
 @RestController
 @RequestMapping("/answers")
@@ -29,7 +31,7 @@ public class AnswerController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public AnswerModel createAnswer(@RequestBody AnswerDto answerDto) {
+    public AnswerModel createAnswer(@Valid @RequestBody AnswerDto answerDto) {
         AnswerDto createdAnswer = answerService.createAnswer(answerDto);
         log.info("Create answer: {}", answerDto);
         return answerAssembler.toModel(createdAnswer);

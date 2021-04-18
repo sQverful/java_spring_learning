@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 
 @Slf4j
 @RestController
@@ -30,7 +32,7 @@ public class SubjectController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public SubjectModel createSubject(@RequestBody SubjectDto subjectDto) {
+    public SubjectModel createSubject(@Valid @RequestBody SubjectDto subjectDto) {
         SubjectDto createdSubject = subjectService.createSubject(subjectDto);
         log.info("Create subject: {}", subjectDto);
         return subjectAssembler.toModel(createdSubject);
