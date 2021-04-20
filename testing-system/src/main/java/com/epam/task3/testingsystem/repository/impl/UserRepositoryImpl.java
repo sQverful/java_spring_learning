@@ -1,5 +1,6 @@
 package com.epam.task3.testingsystem.repository.impl;
 
+import com.epam.task3.testingsystem.exception.UserNotFoundException;
 import com.epam.task3.testingsystem.model.User;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ public class UserRepositoryImpl implements com.epam.task3.testingsystem.reposito
         return list.stream()
                 .filter(user -> user.getId() == id)
                 .findFirst()
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(UserNotFoundException::new);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class UserRepositoryImpl implements com.epam.task3.testingsystem.reposito
         if (isDeleted) {
             list.add(user);
         } else {
-            throw new RuntimeException("UserService does not exists!!!");
+            throw new RuntimeException("User does not exists!!!");
         }
         return user;
     }
