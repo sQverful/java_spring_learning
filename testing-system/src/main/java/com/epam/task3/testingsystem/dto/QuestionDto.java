@@ -12,10 +12,10 @@ public class QuestionDto {
     private int id;
     @NotNull
     @Size(min = 2, max = 244)
-    private String questionEN;
+    private String questionEn;
     @NotNull
     @Size(min = 2, max = 244)
-    private String questionUA;
+    private String questionUa;
     @NotNull
     private int testId;
 }

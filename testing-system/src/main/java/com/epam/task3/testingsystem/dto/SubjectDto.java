@@ -13,19 +13,19 @@ public class SubjectDto {
     private int id;
     @NotNull
     @Size(min = 2, max = 244)
-    private String nameEN;
+    private String nameEn;
     @NotNull
     @Size(min = 2, max = 244)
-    private String nameUA;
+    private String nameUa;
     @NotNull
     @Size(min = 2, max = 3000)
-    private String descriptionEN;
+    private String descriptionEn;
     @NotNull
     @Size(min = 2, max = 3000)
-    private String descriptionUA;
+    private String descriptionUa;
     @NotNull
     private int adminId;
-    private Timestamp createdOn;
+    private Timestamp createTime;
 
 }
 

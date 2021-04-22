@@ -1,17 +1,12 @@
 package com.epam.task3.testingsystem.repository;
 
 import com.epam.task3.testingsystem.model.Subject;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface SubjectRepository {
-    Subject createSubject(Subject subject);
+@Repository
+public interface SubjectRepository extends JpaRepository<Subject, Integer> {
 
-    Subject getSubject(int id);
-
-    Subject updateSubject(int id, Subject subject);
-
-    void deleteSubject(int id);
-
-    List<Subject> getList();
 }

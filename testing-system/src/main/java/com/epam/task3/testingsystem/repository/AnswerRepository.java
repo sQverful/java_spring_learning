@@ -1,13 +1,9 @@
 package com.epam.task3.testingsystem.repository;
 
+
 import com.epam.task3.testingsystem.model.Answer;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AnswerRepository {
-    Answer getAnswer(int id);
+public interface AnswerRepository extends JpaRepository<Answer, Integer> {
 
-    Answer createAnswer(Answer answer);
-
-    Answer updateAnswer(int id, Answer answer);
-
-    void deleteAnswer(int id);
 }

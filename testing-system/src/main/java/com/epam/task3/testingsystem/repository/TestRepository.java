@@ -1,17 +1,13 @@
 package com.epam.task3.testingsystem.repository;
 
+import com.epam.task3.testingsystem.dto.TestDto;
 import com.epam.task3.testingsystem.model.Test;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface TestRepository {
-    Test createTest(Test test);
+@Repository
+public interface TestRepository extends JpaRepository<Test, Integer> {
 
-    Test getTest(int id);
-
-    Test updateTest(int id, Test test);
-
-    void deleteTest(int id);
-
-    List<Test> getTestList();
 }

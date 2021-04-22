@@ -1,17 +1,12 @@
 package com.epam.task3.testingsystem.repository;
 
 import com.epam.task3.testingsystem.model.Question;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface QuestionRepository {
-    Question createQuestion(Question question);
+@Repository
+public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
-    Question getQuestion(int id);
-
-    Question updateQuestion(int id, Question question);
-
-    void deleteQuestion(int id);
-
-    List<Question> getList();
 }

@@ -14,23 +14,23 @@ public class TestDto {
     private int id;
     @NotNull
     @Size(min = 2, max = 244)
-    private String nameEN;
+    private String nameEn;
     @NotNull
     @Size(min = 2, max = 244)
-    private String nameUA;
+    private String nameUa;
     @NotNull
     @Size(min = 2, max = 3000)
-    private String descriptionEN;
+    private String descriptionEn;
     @NotNull
     @Size(min = 2, max = 3000)
-    private String descriptionUA;
+    private String descriptionUa;
     @NotNull
     private int subjectId;
     private boolean blocked;
     @NotNull
     @Max(100)
     private int complexity;
-    private int requestsQuantity;
+    private Integer requestsQuantity;
     private int timer;
-    private Timestamp createdOn;
+    private Timestamp createTime;
 }

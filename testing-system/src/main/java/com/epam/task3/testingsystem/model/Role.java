@@ -7,17 +7,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "question")
+@Table(name = "role")
 @Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Question {
+public class Role {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String questionEn;
-    private String questionUa;
-    private int testId;
+
+    @Column(name = "role")
+    @Enumerated(value = EnumType.ORDINAL)
+    private Roles role;
+
 }

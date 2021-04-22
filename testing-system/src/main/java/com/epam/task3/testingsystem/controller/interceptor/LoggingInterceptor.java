@@ -6,6 +6,9 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The LoggingInterceptor intercepts all requests and logs session id of a client.
+ */
 @Slf4j
 public class LoggingInterceptor implements HandlerInterceptor {
 

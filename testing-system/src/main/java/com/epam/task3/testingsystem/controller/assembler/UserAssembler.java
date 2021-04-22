@@ -1,8 +1,8 @@
 package com.epam.task3.testingsystem.controller.assembler;
 
-import com.epam.task3.testingsystem.controller.UserController;
 import com.epam.task3.testingsystem.controller.model.UserModel;
 import com.epam.task3.testingsystem.dto.UserDto;
+import com.epam.task3.testingsystem.swaggerApi.UserApi;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Component;
@@ -21,12 +21,16 @@ public class UserAssembler extends RepresentationModelAssemblerSupport<UserDto, 
     public UserModel toModel(UserDto entity) {
         UserModel userModel = new UserModel(entity);
 
-        Link getUserLink = linkTo(methodOn(UserController.class).getUser(entity.getId()))
+        Link getUserLink = linkTo(methodOn(UserApi.class).getUser(entity.getId()))
                 .withRel("getUser");
-        Link deleteUser = linkTo(methodOn(UserController.class).deleteUser(entity.getId()))
+        Link deleteUser = linkTo(methodOn(UserApi.class).deleteUser(entity.getId()))
                 .withRel("deleteUser");
-        Link updateUser = linkTo(methodOn(UserController.class).updateUser(entity.getId(), entity))
+        Link updateUser = linkTo(methodOn(UserApi.class).updateUser(entity.getId(), entity))
                 .withRel("updateUser");
+
+        UserDto userDto = UserDto.builder().build();
+
+        UserModel.of(userDto);
 
         userModel.add(getUserLink, deleteUser, updateUser);
 

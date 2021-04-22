@@ -3,13 +3,14 @@ package com.epam.task3.testingsystem.service.impl;
 import com.epam.task3.testingsystem.dto.TestResultDto;
 import com.epam.task3.testingsystem.model.TestResult;
 import com.epam.task3.testingsystem.repository.TestResultRepository;
+import com.epam.task3.testingsystem.service.TestResultService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class TestResultServiceImpl implements com.epam.task3.testingsystem.service.TestResultService {
+public class TestResultServiceImpl implements TestResultService {
 
     private final TestResultRepository testResultRepository;
 
